@@ -16,6 +16,10 @@ export const metadata: Metadata = {
   title: "Seed Project",
   description: "every seeds becomes a forest"
 
+  icon: {
+    icon: "/seed logo.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
