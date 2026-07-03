@@ -5,10 +5,10 @@ export default function Home() {
     <div className="text-center">
 
 <Image
-  src="/seed logo.png"
+  src="/seed homepage.png"
   alt="Seed Project Logo"
-  width={300}
-  height={300}
+  width={400}
+  height={400}
   className="mx-auto mb-6"
 />
 <button
