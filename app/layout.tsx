@@ -14,11 +14,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Seed Project",
-  description: "every seeds becomes a forest"
+  description: "every seeds becomes a forest",
 
-  icon: {
-    icon: "/seed logo.png",
-    apple: "/apple-touch-icon.png",
+  icons:{
+    icon: "/icon png.png",
+    apple: "/apple-touch-icon.PNG",
   },
 };
 
