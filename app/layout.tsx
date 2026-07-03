@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: "every seeds becomes a forest",
 
   icons:{
-    icon: "/icon png.png",
+    icon: "/icon-png.png",
     apple: "/apple-touch-icon.PNG",
   },
 };
