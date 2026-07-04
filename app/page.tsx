@@ -1,7 +1,6 @@
-import { Sprout } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import AnimatedBackground from "./components/AnimatedBackground";
+import { AnimatedBackground } from "./components/AnimatedBackground";
 
 export default function Home() {
   return (
