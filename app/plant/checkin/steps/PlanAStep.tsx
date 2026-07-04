@@ -24,14 +24,7 @@ export default function PlanAStep({
         </p>
       </div>
 
-      {/* Image */}
-      <div className="overflow-hidden rounded-[28px] shadow-sm mb-8">
-        <img
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY9hpML8fbdVw30ynu3lqrmb1BsRVZmgxTJ2YKbi4p7A5m0GaefeK0YJpkwz_0NHZgaBVj5v4AZjOVLPZMmtJKScn9mZcuts03342JOmUewio-4oRFhVSohm9pFvxs1ScyqvpUAB6paRZHXCVB9gpUDRVvKFqjkzCsBE0bYlSmpX_-Cve1XwuD6t5mBSf10Ki9YWIahdApg0rnpiCsYxEflYE78eag1WVXKlr0jcmqKT5SArsXyIyL"
-          alt="Plan A"
-          className="w-full h-64 object-cover"
-        />
-      </div>
+  
 
       {/* Textarea */}
       <div className="bg-[#F8F4EC] rounded-[24px] p-6 mb-6">
