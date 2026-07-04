@@ -2,16 +2,16 @@
 
 import { useState } from 'react';
 
-interface GoalStepProps {
-  onNext?: (goal: string) => void;
+type Props = {
+  onNext?: () => void;
 }
 
-export default function GoalStep({ onNext }: GoalStepProps) {
+export default function GoalStep({ onNext }: Props) {
   const [goal, setGoal] = useState('');
 
   const handleContinue = () => {
     if (onNext) {
-      onNext(goal);
+      onNext();
     }
   };
 
@@ -92,13 +92,13 @@ export default function GoalStep({ onNext }: GoalStepProps) {
           </div>
         </div>
 
-        {/* Continue Button */}
-        <button
-          onClick={handleContinue}
-          className="w-full max-w-md bg-[#5C4033] text-white font-semibold py-4 sm:py-5 rounded-full text-lg hover:bg-[#4B352A] active:scale-95 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          🌱 继续
-        </button>
+    {/* Continue Button */}
+<button
+  onClick={onNext}
+  className="w-full max-w-md bg-[#5C4033] text-white font-semibold py-4 sm:py-5 rounded-full text-lg hover:bg-[#4B352A] active:scale-95 transition-all shadow-lg"
+>
+  🌱 继续
+</button>
       </div>
     </>
   );
