@@ -1,5 +1,7 @@
 'use client';
 
+import WizardStepFrame, { helperCardClass, primaryButtonClass, secondaryButtonClass, textareaClass } from '../components/WizardStepFrame';
+
 type Props = {
   onBack: () => void;
   onNext: () => void;
@@ -10,87 +12,57 @@ export default function PlanAStep({
   onNext,
 }: Props) {
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="w-full">
+      <WizardStepFrame
+        stepLabel="🌱 第二步"
+        progressPercent="50%"
+        title="帮助对象"
+        description="找一个与你有共同目标，或值得帮助的对象。"
+        contentClassName="space-y-6"
+      >
+        <div className={`${helperCardClass} border border-[#E8DDCC]`}>
+          <label className="mb-3 block font-semibold text-[#8FAE8B]">
+            帮助对象
+          </label>
+          <textarea
+            placeholder="例如：父母、伙伴、客户、朋友……"
+            className={`${textareaClass} min-h-[92px] bg-transparent border-0 p-0 shadow-none focus:ring-0 text-xl sm:text-2xl`}
+            rows={2}
+          />
+        </div>
 
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold text-[#5B4636] mb-3">
-          🌱 计划 A
-        </h1>
+        <div className={`${helperCardClass} border border-[#E8DDCC]`}>
+          <p className="text-[#8B7B6F]">
+            💡 先帮助别人得到他们想要的，
+            你的种子就开始成长。
+          </p>
+        </div>
 
-        <p className="text-[#8B7B6F]">
-          找一个与你有共同目标，
-          或值得帮助的对象。
-        </p>
-      </div>
+        <div className="flex flex-wrap gap-3">
+          <button className="rounded-full bg-[#ECE4D8] px-4 py-2 text-sm text-[#5B4636]">
+            家庭成员
+          </button>
+          <button className="rounded-full bg-[#ECE4D8] px-4 py-2 text-sm text-[#5B4636]">
+            事业伙伴
+          </button>
+          <button className="rounded-full bg-[#ECE4D8] px-4 py-2 text-sm text-[#5B4636]">
+            社会弱势
+          </button>
+          <button className="rounded-full bg-[#ECE4D8] px-4 py-2 text-sm text-[#5B4636]">
+            亲密朋友
+          </button>
+        </div>
+      </WizardStepFrame>
 
-  
-
-      {/* Textarea */}
-      <div className="bg-[#F8F4EC] rounded-[24px] p-6 mb-6">
-
-        <label className="text-[#8FAE8B] font-semibold block mb-3">
-          帮助对象
-        </label>
-
-        <textarea
-          placeholder="例如：父母、伙伴、客户、朋友……"
-          className="w-full bg-transparent resize-none outline-none text-2xl text-[#5B4636]"
-          rows={2}
-        />
-
-      </div>
-
-      {/* Tip */}
-      <div className="bg-[#F8F4EC] rounded-[20px] p-5 border border-[#E8DDCC] mb-8">
-
-        <p className="text-[#8B7B6F]">
-          💡 先帮助别人得到他们想要的，
-          你的种子就开始成长。
-        </p>
-
-      </div>
-
-      {/* Chips */}
-      <div className="flex flex-wrap gap-3 mb-10">
-
-        <button className="px-4 py-2 rounded-full bg-[#ECE4D8]">
-          家庭成员
-        </button>
-
-        <button className="px-4 py-2 rounded-full bg-[#ECE4D8]">
-          事业伙伴
-        </button>
-
-        <button className="px-4 py-2 rounded-full bg-[#ECE4D8]">
-          社会弱势
-        </button>
-
-        <button className="px-4 py-2 rounded-full bg-[#ECE4D8]">
-          亲密朋友
-        </button>
-
-      </div>
-
-      {/* Bottom Buttons */}
-      <div className="flex justify-between">
-
-        <button
-          onClick={onBack}
-          className="px-6 py-4 rounded-full border border-[#8FAE8B]"
-        >
+      <div className="mt-6 flex justify-between gap-3">
+        <button onClick={onBack} className={secondaryButtonClass}>
           ← 返回
         </button>
 
-        <button
-          onClick={onNext}
-          className="bg-[#5C4033] text-white px-8 py-4 rounded-full hover:bg-[#4B352A]"
-        >
+        <button onClick={onNext} className={primaryButtonClass}>
           🌱 下一步
         </button>
-
       </div>
-
     </div>
   );
 }

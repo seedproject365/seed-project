@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import WizardStepFrame, { helperCardClass, primaryButtonClass, secondaryButtonClass, textareaClass } from '../components/WizardStepFrame';
 
 type Props = {
   onBack: () => void;
@@ -14,118 +15,56 @@ export default function PlanBStep({
   const [plan, setPlan] = useState('');
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="w-full">
+      <WizardStepFrame
+        stepLabel="🌱 第三步"
+        progressPercent="75%"
+        title="今天的行动"
+        description="今天，你准备如何帮助对方？"
+        contentClassName="space-y-6"
+      >
+        <div className={`${helperCardClass} border border-[#E8DDCC]`}>
+          <textarea
+            value={plan}
+            onChange={(e) => setPlan(e.target.value)}
+            placeholder="例如：今天转 RM1 给妈妈的 TNG，给她一个惊喜……"
+            rows={5}
+            className={`${textareaClass} min-h-[180px] bg-[#ECE4D8] border border-[#E8DDCC]`}
+          />
 
-      {/* Header */}
-      <div className="mb-8 text-center">
-        <h1 className="text-4xl font-bold text-[#5B4636] mb-3">
-          ❤️ 计划 B
-        </h1>
-
-        <p className="text-[#8B7B6F]">
-          今天，你准备如何帮助对方？
-        </p>
-      </div>
-
-      {/* Card */}
-      <div className="bg-[#F8F4EC] rounded-[32px] p-8 shadow-sm mb-8">
-
-        <textarea
-          value={plan}
-          onChange={(e) => setPlan(e.target.value)}
-          placeholder="例如：今天转 RM1 给妈妈的 TNG，给她一个惊喜……"
-          rows={5}
-          className="
-            w-full
-            rounded-[20px]
-            bg-[#ECE4D8]
-            p-6
-            resize-none
-            outline-none
-            text-[#5B4636]
-            placeholder:text-[#A79F91]
-            focus:ring-2
-            focus:ring-[#8FAE8B]
-          "
-        />
-
-        <div className="flex gap-3 mt-6">
-
-          <span className="text-[#8FAE8B]">
-            💡
-          </span>
-
-          <p className="text-sm text-[#8B7B6F]">
-            行动越具体，种子成长得越快。
-            每一个微小的善意都是未来的果实。
-          </p>
-
+          <div className="mt-6 flex gap-3">
+            <span className="text-[#8FAE8B]">💡</span>
+            <p className="text-sm text-[#8B7B6F]">
+              行动越具体，种子成长得越快。
+              每一个微小的善意都是未来的果实。
+            </p>
+          </div>
         </div>
 
-      </div>
+        <div className="rounded-[30px] bg-white p-5 shadow-lg border border-[#EFE6DA]">
+          <div className="mb-4 flex items-center gap-3">
+            <span className="text-2xl">💧</span>
+            <span className="font-medium text-[#8B7B6F]">灌溉你的种子中...</span>
+          </div>
 
-      {/* Growing Seed */}
-<div className="bg-white rounded-[24px] p-5 shadow-sm mb-10">
+          <div className="flex items-center gap-3">
+            <div className="relative h-3 flex-1 overflow-hidden rounded-full bg-[#E8DDCC]">
+              <div className="h-full w-3/4 bg-[#8FAE8B]" />
+            </div>
+            <div className="text-2xl">🌱</div>
+          </div>
+        </div>
+      </WizardStepFrame>
 
-  <div className="flex items-center gap-3 mb-4">
-    <span className="text-2xl">💧</span>
-
-    <span className="text-[#8B7B6F] font-medium">
-      灌溉你的种子中...
-    </span>
-  </div>
-
-<div className="flex items-center gap-3 mt-3">
-
-    <div className="relative flex-1 h-4 bg-[#E8DDCC] rounded-full overflow-hidden">
-
-        <div className="water-flow"></div>
-
-        <div className="water-shine"></div>
-
-    </div>
-
-    <div className="seed-grow">
-        🌱
-    </div>
-
-</div>
-
-</div>
-
-      {/* Bottom Buttons */}
-      <div className="flex justify-between">
-
-        <button
-          onClick={onBack}
-          className="
-            px-8
-            py-4
-            rounded-full
-            border
-            border-[#8FAE8B]
-            hover:bg-[#F8F4EC]
-          "
-        >
+      <div className="mt-0 flex justify-between gap-3">
+        <button onClick={onBack} className={secondaryButtonClass}>
           ← 返回
         </button>
 
-        <button
-          onClick={onNext}
-          className="
-            bg-[#5C4033]
-            text-white
-            px-8
-            py-4
-            rounded-full
-            hover:bg-[#4B352A]
-          "
-        >
+        <button onClick={onNext} className={primaryButtonClass}>
           继续 →
         </button>
-
       </div>
-
     </div>
   );
 }

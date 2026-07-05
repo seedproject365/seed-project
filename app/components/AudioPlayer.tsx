@@ -28,9 +28,21 @@ export default function AudioPlayer({
     }
   }, [isMuted]);
 
-  const toggleMute = () => {
-    setIsMuted(!isMuted);
-  };
+  const toggleMute = async () => {
+  if (!audioRef.current) return;
+
+  if (isMuted) {
+    try {
+      await audioRef.current.play();
+      setIsMuted(false);
+    } catch (err) {
+      console.log(err);
+    }
+  } else {
+    audioRef.current.pause();
+    setIsMuted(true);
+  }
+};
 
   return (
     <>
@@ -38,9 +50,7 @@ export default function AudioPlayer({
         ref={audioRef}
         src={audioSource}
         loop
-        autoPlay={!defaultMuted}
-        onPlay={() => setIsMuted(false)}
-        onPause={() => setIsMuted(true)}
+       preload="auto"
       />
 
       <button

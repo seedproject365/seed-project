@@ -1,5 +1,8 @@
-import type { Metadata } from "next";
-import { Nunito_Sans, Patrick_Hand, Quicksand, Noto_Sans_SC } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import {
+  Quicksand,
+  Noto_Sans_SC,
+} from "next/font/google";
 import "./globals.css";
 import BottomNav from "./components/BottomNav";
 import AudioPlayer from "./components/AudioPlayer";
@@ -17,11 +20,20 @@ const notoSansSC = Noto_Sans_SC({
 export const metadata: Metadata = {
   title: "Seed Project",
   description: "every seeds becomes a forest",
-
-  icons:{
+  icons: {
     icon: "/icon-png.png",
     apple: "/apple-touch-icon.PNG",
   },
+};
+
+// 手机禁止缩放
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -30,8 +42,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className={quicksand.className}>
+    <html lang="zh" className="h-full antialiased">
+      <body className={`${quicksand.className} ${notoSansSC.className}`}>
         {children}
         <AudioPlayer defaultMuted={false} />
         <BottomNav />

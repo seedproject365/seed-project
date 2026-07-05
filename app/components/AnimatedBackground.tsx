@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useEffect, useState } from 'react';
 
 type FloatingEmoji = {
   id: number;
@@ -74,8 +74,8 @@ function createParticles(): Particle[] {
 }
 
 export function AnimatedBackground() {
-  const emojis = useMemo(() => createFloatingEmojis(), []);
-  const particles = useMemo(() => createParticles(), []);
+ const [emojis, setEmojis] = useState<FloatingEmoji[]>([]);
+const [particles, setParticles] = useState<Particle[]>([]);
 
   return (
     <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">

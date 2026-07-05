@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import WizardLayout from './components/WizardLayout';
 
-import GoalStep from './steps/Goalstep';
+import GoalStep from './steps/GoalStep';
 import PlanAStep from './steps/PlanAStep';
 import PlanBStep from './steps/PlanBStep';
 import CelebrateStep from './steps/CelebrateStep';
