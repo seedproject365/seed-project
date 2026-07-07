@@ -13,6 +13,11 @@ interface NavItem {
 export default function BottomNav() {
   const pathname = usePathname();
 
+  // 👇 首页隐藏 BottomNav
+  if (pathname === "/") {
+    return null;
+  }
+
   const navItems: NavItem[] = [
     { label: "Home", href: "/", icon: <Home size={22} /> },
     { label: "Today's Seed", href: "/plant", icon: <Sprout size={22} /> },

@@ -28,6 +28,24 @@ export default function AudioPlayer({
     }
   }, [isMuted]);
 
+  useEffect(() => {
+  const startMusic = async () => {
+    if (audioRef.current) {
+      try {
+        await audioRef.current.play();
+      } catch {}
+    }
+
+    window.removeEventListener("pointerdown", startMusic);
+  };
+
+  window.addEventListener("pointerdown", startMusic);
+
+  return () => {
+    window.removeEventListener("pointerdown", startMusic);
+  };
+}, []);
+
   const toggleMute = async () => {
   if (!audioRef.current) return;
 

@@ -74,8 +74,13 @@ function createParticles(): Particle[] {
 }
 
 export function AnimatedBackground() {
- const [emojis, setEmojis] = useState<FloatingEmoji[]>([]);
-const [particles, setParticles] = useState<Particle[]>([]);
+  const [emojis, setEmojis] = useState<FloatingEmoji[]>([]);
+  const [particles, setParticles] = useState<Particle[]>([]);
+
+  useEffect(() => {
+    setEmojis(createFloatingEmojis());
+    setParticles(createParticles());
+  }, []);
 
   return (
     <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">

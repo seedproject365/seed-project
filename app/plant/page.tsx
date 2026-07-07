@@ -65,8 +65,8 @@ export default function PlantPage() {
 
       <main className="min-h-screen bg-[#F8F4EC] flex flex-col pb-24">
         {/* Cards List */}
-        <div className="flex-1 px-4 sm:px-6 pt-4 sm:pt-6">
-          <div className="flex flex-col gap-4 max-w-2xl mx-auto">
+       <div className="flex-1 px-4 sm:px-6 pt-4 sm:pt-6 flex justify-center">
+          <div className="flex flex-col gap-4 w-[400px] mx-auto flex justify-center">
             {/* Card 1: Today's Seed */}
             <Link href="/plant/checkin">
               <div className="card-wrapper bg-[#E8DDCC] rounded-[24px] px-5 sm:px-6 py-4 h-24 sm:h-28 shadow-sm flex items-center">
@@ -82,16 +82,16 @@ export default function PlantPage() {
               </div>
             </Link>
 
-            {/* Card 2: My Records */}
+            {/* Card 2: Gratitude */}
             <Link href="/plant/history">
               <div className="card-wrapper bg-[#E8DDCC] rounded-[24px] px-5 sm:px-6 py-4 h-24 sm:h-28 shadow-sm flex items-center">
-                <div className="text-2xl sm:text-3xl mr-4 flex-shrink-0 book-icon">📖</div>
+               <div className="text-2xl sm:text-3xl mr-4 flex-shrink-0 animate-heart-breathe">❤️</div>
                 <div className="flex-1 flex flex-col justify-center min-w-0">
                   <h2 className="text-base font-semibold text-[#5B4636]">
-                    My Records
+                    Gratitude
                   </h2>
                   <p className="text-xs text-[#8B7B6F] leading-relaxed">
-                    View previous check-ins
+                    感恩日记
                   </p>
                 </div>
               </div>
@@ -100,9 +100,7 @@ export default function PlantPage() {
             {/* Card 3: Three Times Book */}
             <Link href="/garden">
               <div className="card-wrapper bg-[#E8DDCC] rounded-[24px] px-5 sm:px-6 py-4 h-24 sm:h-28 shadow-sm flex items-center">
-                <div className="text-2xl sm:text-3xl mr-4 flex-shrink-0 flex items-center">
-                  <span className="animate-leaf-sway">🌳</span>
-                </div>
+               <div className="text-2xl sm:text-3xl mr-4 flex-shrink-0 book-icon">📖</div>
                 <div className="flex-1 flex flex-col justify-center min-w-0">
                   <h2 className="text-base font-semibold text-[#5B4636]">
                     Three Times Book
@@ -114,16 +112,18 @@ export default function PlantPage() {
               </div>
             </Link>
 
-            {/* Card 4: Gratitude */}
+            {/* Card 4: My Records */}
             <Link href="/reflection">
               <div className="card-wrapper bg-[#E8DDCC] rounded-[24px] px-5 sm:px-6 py-4 h-24 sm:h-28 shadow-sm flex items-center">
-                <div className="text-2xl sm:text-3xl mr-4 flex-shrink-0 animate-heart-breathe">❤️</div>
+                <div className="text-2xl sm:text-3xl mr-4 flex-shrink-0 flex items-center">
+                  <span className="animate-leaf-sway">🌳</span>
+                </div>  
                 <div className="flex-1 flex flex-col justify-center min-w-0">
                   <h2 className="text-base font-semibold text-[#5B4636]">
-                    Gratitude
+                    打卡记录
                   </h2>
                   <p className="text-xs text-[#8B7B6F] leading-relaxed">
-                    写下今天的感恩
+                    View Previous Checkins
                   </p>
                 </div>
               </div>
@@ -132,7 +132,8 @@ export default function PlantPage() {
         </div>
 
         {/* Quote Section */}
-        <div className="px-4 sm:px-6 py-6 sm:py-8 max-w-2xl mx-auto w-full">
+        <div className="px-4 sm:px-6 mt-0 mb-6 max-w-2xl mx-auto flex justify-center">
+
           <QuoteCard />
         </div>
       </main>

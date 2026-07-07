@@ -31,7 +31,7 @@ export function QuoteCard() {
 
   return (
     <div
-      className={`bg-[#E8DDCC] rounded-[28px] p-4 sm:p-6 shadow-md text-center transition-opacity duration-500 ease-in ${
+      className={`bg-[#f3f9d1] rounded-[28px] p-3 sm:p-5 shadow-md text-center transition-opacity duration-500 ease-in ${
         isLoaded ? 'opacity-100' : 'opacity-0'
       }`}
     >
@@ -43,7 +43,7 @@ export function QuoteCard() {
         {quote.english}
       </p>
 
-      <div className="border-t border-[#D4C4B0] pt-3">
+      <div className="border-t border-[#D4C4B0] pt-1">
         <p className="text-[#8FAE8B] text-xs sm:text-sm leading-relaxed noto-sans-sc">
           {quote.chinese}
         </p>
