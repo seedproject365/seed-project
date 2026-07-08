@@ -32,22 +32,24 @@ export const progressBarClass =
 export const progressFillClass =
   'h-full bg-[#8FAE8B] rounded-full transition-all duration-500 ease-out';
 
-type WizardStepFrameProps = {
+export interface WizardStepFrameProps {
   children: ReactNode;
   stepLabel: string;
-  progressPercent?: string;
+  progressPercent?: number;
   showProgress?: boolean;
+  showFrame?: boolean;
   title?: ReactNode;
   description?: ReactNode;
   className?: string;
   contentClassName?: string;
-};
+}
 
 export default function WizardStepFrame({
   children,
   stepLabel,
-  progressPercent,
+  progressPercent = 0,
   showProgress = true,
+  showFrame = true,
   title,
   description,
   className = '',
@@ -86,22 +88,18 @@ export default function WizardStepFrame({
 
           <div className={progressBarClass}>
             <div
-              className={`${progressFillClass}
-              ${
-                progressPercent === '25%'
-                  ? 'w-1/4'
-                  : progressPercent === '50%'
-                  ? 'w-2/4'
-                  : progressPercent === '75%'
-                  ? 'w-3/4'
-                  : 'w-full'
-              }`}
-            />
+  className={progressFillClass}
+  style={{ width: `${progressPercent}%` }}
+/>
           </div>
         </div>
       )}
 
-      <div className={`fade-in-scale ${cardClass} ${className}`}>
+      <div
+  className={`fade-in-scale ${
+    showFrame ? cardClass : ''
+  } ${className}`}
+>
         {title && (
           <div className="mb-5">
             <h1 className={titleClass}>{title}</h1>

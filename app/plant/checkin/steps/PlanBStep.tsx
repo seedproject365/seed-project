@@ -1,21 +1,26 @@
 'use client';
 
-import { useState,useEffect } from 'react';
+import { useEffect, useState, type Dispatch, type SetStateAction } from 'react';
 import WizardStepFrame, { helperCardClass, primaryButtonClass, secondaryButtonClass, textareaClass } from '../components/WizardStepFrame';
 
-type Props = {
+interface Props {
+  plan: string;
+  setPlan: Dispatch<SetStateAction<string>>;
   onBack: () => void;
   onNext: () => void;
-};
+}
 
 export default function PlanBStep({
+  plan,
+  setPlan,
   onBack,
   onNext,
 }: Props) {
-  const [plan, setPlan] = useState('');
+  
   const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    
 
-useEffect(() => {
   const timer = setInterval(() => {
     setProgress((prev) => {
       if (prev >= 100) {
@@ -32,8 +37,9 @@ useEffect(() => {
   return (
     <div className="w-full">
       <WizardStepFrame
+      showFrame={false}
         stepLabel="🌱 第三步"
-        progressPercent="75%"
+        progressPercent={75}
         title="🌱 Plant Your Seed"
         description="今天，你准备如何帮助对方？"
         contentClassName="space-y-5"

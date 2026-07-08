@@ -1,22 +1,23 @@
 'use client';
-
-import { useState } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 import WizardStepFrame, { helperCardClass, primaryButtonClass, secondaryButtonClass, textareaClass } from '../components/WizardStepFrame';
 
-type Props = {
+interface Props {
+  reflection: string;
+  setReflection: Dispatch<SetStateAction<string>>;
   onBack: () => void;
   onNext: () => void;
-};
+}
 
-export default function CelebrateStep({ onBack, onNext }: Props) {
-  const [reflection, setReflection] = useState('');
+export default function CelebrateStep({ reflection, setReflection, onBack, onNext }: Props) {
+
 
   return (
     <div className="w-full">
       <WizardStepFrame
       showFrame={false}
         stepLabel="🌱 第四步"
-        progressPercent="{100}"
+        progressPercent={100}
         title="☕ Celebrate"
                contentClassName="space-y-6"
       >

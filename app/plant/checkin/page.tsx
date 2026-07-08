@@ -13,19 +13,21 @@ import CompleteStep from './steps/CompleteStep';
 export default function CheckinPage() {
   const [step, setStep] = useState(1);
 
-const [goal, setGoal] = useState("");
-const [partner, setPartner] = useState("");
-const [plan, setPlan] = useState("");
-const [reflection, setReflection] = useState("");
+  const [goal, setGoal] = useState('');
+  const [partner, setPartner] = useState('');
+  const [plan, setPlan] = useState('');
+  const [reflection, setReflection] = useState('');
+
   return (
     <WizardLayout>
-     {step === 1 && (
-  <GoalStep
-    goal={goal}
-    setGoal={setGoal}
-    onNext={() => setStep(2)}
-  />
-)}
+
+      {step === 1 && (
+        <GoalStep
+          goal={goal}
+          setGoal={setGoal}
+          onNext={() => setStep(2)}
+        />
+      )}
 
       {step === 2 && (
         <PlanAStep
@@ -55,20 +57,21 @@ const [reflection, setReflection] = useState("");
       )}
 
       {step === 5 && (
-  <CompleteStep
-    goal={goal}
-    partner={partner}
-    plan={plan}
-    reflection={reflection}
-    onRestart={() => {
-      setGoal("");
-      setPartner("");
-      setPlan("");
-      setReflection("");
-      setStep(1);
-    }}
-  />
-)}
+        <CompleteStep
+          goal={goal}
+          partner={partner}
+          plan={plan}
+          reflection={reflection}
+          onRestart={() => {
+            setGoal('');
+            setPartner('');
+            setPlan('');
+            setReflection('');
+            setStep(1);
+          }}
+        />
+      )}
+
     </WizardLayout>
   );
 }

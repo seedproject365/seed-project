@@ -1,25 +1,19 @@
 'use client';
-
+import type { Dispatch, SetStateAction } from 'react';
 import WizardStepFrame, { helperCardClass, primaryButtonClass, secondaryButtonClass, textareaClass } from '../components/WizardStepFrame';
 
-type Props = {
+interface Props {
   partner: string;
-  setPartner: React.Dispatch<React.SetStateAction<string>>;
+  setPartner: Dispatch<SetStateAction<string>>;
   onBack: () => void;
   onNext: () => void;
-};
+}
 
-export default function PlanAStep({
-  partner,
-  setPartner,
-  onBack,
-  onNext,
-}: Props) {
+export default function PlanAStep({ partner, setPartner, onBack, onNext }: Props) {
   return (
     <div className="w-full">
      <WizardStepFrame
      showFrame={false}
-     showProgress={true}
   stepLabel="🌱 第二步"
   progressPercent={50}
   title="👥 Seed Partner"

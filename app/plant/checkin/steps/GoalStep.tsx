@@ -1,14 +1,14 @@
 'use client';
-
+import type { Dispatch, SetStateAction } from 'react';
 import WizardStepFrame, { helperCardClass, primaryButtonClass, textareaClass } from '../components/WizardStepFrame';
 
-type Props = {
+interface Props {
   goal: string;
-  setGoal: React.Dispatch<React.SetStateAction<string>>;
+  setGoal: Dispatch<SetStateAction<string>>;
   onNext: () => void;
-};
+}
 
-export default function GoalStep({goal, setGoal, onNext }: Props) {
+export default function GoalStep({ goal, setGoal, onNext }: Props) {
   return (
     <div className="w-full">
       <WizardStepFrame
