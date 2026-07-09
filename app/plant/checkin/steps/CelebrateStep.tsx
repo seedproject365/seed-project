@@ -15,9 +15,9 @@ export default function CelebrateStep({ reflection, onReflectionChange, onBack, 
     <div className="w-full">
       <WizardStepFrame
       showFrame={false}
-        stepLabel="🌱 第四步"
+        stepLabel="🌱 Step 4"
         progressPercent={100}
-        title="☕ 庆祝"
+        title="☕ Celebrate"
                contentClassName="space-y-6"
       >
         <div className="mt-6">

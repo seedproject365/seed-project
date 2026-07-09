@@ -29,7 +29,7 @@ const timeSlots: TimeSlot[] = [
   {
     period: 'afternoon',
     icon: '🌤',
-    label: '午 · 保护生命',
+    label: '午 · 尊重伴侣或他人的关系',
     range: '12:00 - 17:00',
     completeIcon: '🌙',
     completeTitle: '下午的记录完成了。',
@@ -38,7 +38,7 @@ const timeSlots: TimeSlot[] = [
   {
     period: 'night',
     icon: '🌙',
-    label: '晚 · 保护生命',
+    label: '晚 · 和谐的言语',
     range: '17:00 - 22:00',
     completeIcon: '🌱',
     completeTitle: '今天的三时书完成了。',
@@ -140,8 +140,9 @@ export default function ThreeTimeBookPage() {
 
       <div className="fade-in-scale mx-auto w-full max-w-2xl">
         <div className="mb-4">
-          <p className="text-sm font-medium text-[#8FAE8B]">{currentSlot.label}</p>
-          <h1 className="mt-2 text-3xl font-bold text-[#5B4636]">三时书</h1>
+          
+          <h1 className="mt-0 text-2xl font-bold text-[#5B4636]">三时书</h1>
+          <p className="mt-2 text-sm font-bold text-[#8FAE8B]">{currentSlot.label}</p>
           <p className="mt-2 text-sm text-[#8B7B6F]">{currentSlot.range}</p>
         </div>
 
@@ -200,7 +201,7 @@ export default function ThreeTimeBookPage() {
             <TextStep
               label="步骤四 · 四力量②"
               title="明智的忏悔"
-              placeholder="我真正需要忏悔的是……"
+              placeholder="我对于过去的行为感到抱歉，我决心要停止坏种子持续翻倍。"
               value={repentance}
               onChange={setRepentance}
             />

@@ -13,9 +13,9 @@ export default function PlanAStep({ partner, onPartnerChange, onBack, onNext }: 
     <div className="w-full">
      <WizardStepFrame
      showFrame={false}
-  stepLabel="🌱 第二步"
+  stepLabel="🌱 Step 2"
   progressPercent={50}
-  title="👥 种子伙伴"
+  title="👥 Seed Partner"
   description="找一个与你有共同目标，或值得帮助的对象。"
   contentClassName="space-y-6"
 >

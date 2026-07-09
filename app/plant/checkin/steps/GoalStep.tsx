@@ -12,9 +12,9 @@ export default function GoalStep({ goal, onGoalChange, onNext }: Props) {
     <div className="w-full">
       <WizardStepFrame
       showFrame={false}
-        stepLabel="🌱 第一步"
+        stepLabel="🌱 Step 1"
         progressPercent={25}
-        title="🎯 你的目标是什么？"
+        title="🎯 Goal"
         description="写下一个近期最想实现的目标"
         contentClassName="space-y-6"
       >

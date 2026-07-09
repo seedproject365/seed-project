@@ -16,7 +16,7 @@ export default function CompleteStep({ goal, partner, plan, reflection, onRestar
   return (
     <div className="w-full">
       <WizardStepFrame
-        stepLabel="🌱 第五步"
+        stepLabel="🌱 Step 5"
         showProgress={false}
         title="✅ Complete"
         description="你已成功完成今日四步骤打卡"
@@ -38,7 +38,7 @@ export default function CompleteStep({ goal, partner, plan, reflection, onRestar
         <div className="grid gap-4 sm:grid-cols-2">
           <div className={`${helperCardClass} border border-[#E8DDCC] text-center`}>
             <p className="text-2xl font-bold text-[#8FAE8B]">1</p>
-            <p className="mt-1 text-xs text-[#8B7B6F]">今天又种了一颗种子</p>
+            <p className="mt-1 text-xs text-[#8B7B6F]">我种下的种子</p>
           </div>
           <div className={`${helperCardClass} border border-[#E8DDCC] text-center`}>
             

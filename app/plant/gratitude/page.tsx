@@ -49,12 +49,12 @@ export default function GratitudeJournalPage() {
 
       <div className="fade-in-scale mx-auto w-full max-w-2xl">
         <div className="mb-6">
-          <p className="text-sm font-medium text-[#8FAE8B]">感恩日记</p>
+          <p className="text-sm font-medium text-[#8FAE8B]">Gratitude Journal</p>
           <h1 className="mt-2 text-3xl font-bold text-[#5B4636]">
-            今天你感恩什么？
+            今天你想感恩什么？
           </h1>
           <p className="mt-2 text-base text-[#8B7B6F]">
-            简单写下三件事，就已经很好。
+            简单写下三件事。
           </p>
         </div>
 
@@ -65,7 +65,7 @@ export default function GratitudeJournalPage() {
                 key={index}
                 className="flex items-center gap-3 rounded-[24px] border border-[#E8DDCC] bg-[#F8F4EC] px-4 py-3"
               >
-                <span className="text-lg text-[#8FAE8B]">♥</span>
+                <span className="text-lg text-[#F59BB5]">♥</span>
                 <input
                   value={item}
                   onChange={(event) => updateItem(index, event.target.value)}
@@ -82,7 +82,7 @@ export default function GratitudeJournalPage() {
             onClick={addItem}
             className="mt-5 rounded-full border border-[#8FAE8B] px-6 py-3 text-sm font-semibold text-[#5B4636] transition-all hover:bg-[#F8F4EC]"
           >
-            添加一行
+            +
           </button>
 
           <button
