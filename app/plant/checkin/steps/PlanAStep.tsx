@@ -1,28 +1,27 @@
 'use client';
-import type { Dispatch, SetStateAction } from 'react';
-import WizardStepFrame, { helperCardClass, primaryButtonClass, secondaryButtonClass, textareaClass } from '../components/WizardStepFrame';
+import WizardStepFrame, { primaryButtonClass, secondaryButtonClass, textareaClass } from '../components/WizardStepFrame';
 
 interface Props {
   partner: string;
-  setPartner: Dispatch<SetStateAction<string>>;
+  onPartnerChange: (partner: string) => void;
   onBack: () => void;
   onNext: () => void;
 }
 
-export default function PlanAStep({ partner, setPartner, onBack, onNext }: Props) {
+export default function PlanAStep({ partner, onPartnerChange, onBack, onNext }: Props) {
   return (
     <div className="w-full">
      <WizardStepFrame
      showFrame={false}
   stepLabel="🌱 第二步"
   progressPercent={50}
-  title="👥 Seed Partner"
+  title="👥 种子伙伴"
   description="找一个与你有共同目标，或值得帮助的对象。"
   contentClassName="space-y-6"
 >
  <textarea
   value={partner}
-  onChange={(e) => setPartner(e.target.value)}
+  onChange={(e) => onPartnerChange(e.target.value)}
   placeholder="例如：爸爸、媽媽、朋友、客戶……"
   className={`${textareaClass} h-40 sm:h-48 mt-6 text-base placeholder:text-sm`}
 />

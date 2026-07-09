@@ -1,15 +1,14 @@
 'use client';
-import type { Dispatch, SetStateAction } from 'react';
-import WizardStepFrame, { helperCardClass, primaryButtonClass, secondaryButtonClass, textareaClass } from '../components/WizardStepFrame';
+import WizardStepFrame, { primaryButtonClass, secondaryButtonClass, textareaClass } from '../components/WizardStepFrame';
 
 interface Props {
   reflection: string;
-  setReflection: Dispatch<SetStateAction<string>>;
+  onReflectionChange: (reflection: string) => void;
   onBack: () => void;
   onNext: () => void;
 }
 
-export default function CelebrateStep({ reflection, setReflection, onBack, onNext }: Props) {
+export default function CelebrateStep({ reflection, onReflectionChange, onBack, onNext }: Props) {
 
 
   return (
@@ -18,13 +17,13 @@ export default function CelebrateStep({ reflection, setReflection, onBack, onNex
       showFrame={false}
         stepLabel="🌱 第四步"
         progressPercent={100}
-        title="☕ Celebrate"
+        title="☕ 庆祝"
                contentClassName="space-y-6"
       >
         <div className="mt-6">
   <textarea
     value={reflection}
-    onChange={(e) => setReflection(e.target.value)}
+    onChange={(e) => onReflectionChange(e.target.value)}
     placeholder={`今天帮助了谁？
 有什么收获？
 现在的心情如何？`}

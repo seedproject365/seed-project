@@ -67,13 +67,13 @@ export default function PlantPage() {
         {/* Cards List */}
        <div className="flex-1 px-4 sm:px-6 pt-4 sm:pt-6 flex justify-center">
           <div className="flex flex-col gap-4 w-[400px] mx-auto flex justify-center">
-            {/* Card 1: Today's Seed */}
+            {/* Card 1 */}
             <Link href="/plant/checkin">
               <div className="card-wrapper bg-[#E8DDCC] rounded-[24px] px-5 sm:px-6 py-4 h-24 sm:h-28 shadow-sm flex items-center">
                 <div className="text-2xl sm:text-3xl mr-4 flex-shrink-0 animate-sway">🌱</div>
                 <div className="flex-1 flex flex-col justify-center min-w-0">
                   <h2 className="text-base font-semibold text-[#5B4636]">
-                    Today's Seed
+                    今日种子
                   </h2>
                   <p className="text-xs text-[#8B7B6F] leading-relaxed">
                     打卡四步骤
@@ -82,13 +82,13 @@ export default function PlantPage() {
               </div>
             </Link>
 
-            {/* Card 2: Gratitude */}
-            <Link href="/plant/history">
+            {/* Card 2 */}
+            <Link href="/plant/gratitude">
               <div className="card-wrapper bg-[#E8DDCC] rounded-[24px] px-5 sm:px-6 py-4 h-24 sm:h-28 shadow-sm flex items-center">
                <div className="text-2xl sm:text-3xl mr-4 flex-shrink-0 animate-heart-breathe">❤️</div>
                 <div className="flex-1 flex flex-col justify-center min-w-0">
                   <h2 className="text-base font-semibold text-[#5B4636]">
-                    Gratitude
+                    感恩日记
                   </h2>
                   <p className="text-xs text-[#8B7B6F] leading-relaxed">
                     感恩日记
@@ -97,13 +97,13 @@ export default function PlantPage() {
               </div>
             </Link>
 
-            {/* Card 3: Three Times Book */}
-            <Link href="/garden">
+            {/* Card 3 */}
+            <Link href="/plant/three-time-book">
               <div className="card-wrapper bg-[#E8DDCC] rounded-[24px] px-5 sm:px-6 py-4 h-24 sm:h-28 shadow-sm flex items-center">
                <div className="text-2xl sm:text-3xl mr-4 flex-shrink-0 book-icon">📖</div>
                 <div className="flex-1 flex flex-col justify-center min-w-0">
                   <h2 className="text-base font-semibold text-[#5B4636]">
-                    Three Times Book
+                    三时书
                   </h2>
                   <p className="text-xs text-[#8B7B6F] leading-relaxed">
                     打卡三时书
@@ -112,8 +112,8 @@ export default function PlantPage() {
               </div>
             </Link>
 
-            {/* Card 4: My Records */}
-            <Link href="/reflection">
+            {/* Card 4 */}
+            <Link href="/plant/history">
               <div className="card-wrapper bg-[#E8DDCC] rounded-[24px] px-5 sm:px-6 py-4 h-24 sm:h-28 shadow-sm flex items-center">
                 <div className="text-2xl sm:text-3xl mr-4 flex-shrink-0 flex items-center">
                   <span className="animate-leaf-sway">🌳</span>
@@ -123,7 +123,7 @@ export default function PlantPage() {
                     打卡记录
                   </h2>
                   <p className="text-xs text-[#8B7B6F] leading-relaxed">
-                    View Previous Checkins
+                    查看所有记录
                   </p>
                 </div>
               </div>

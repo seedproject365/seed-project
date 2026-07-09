@@ -1,22 +1,60 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 import WizardLayout from './components/WizardLayout';
+import { saveCompletedCheckin } from '../lib/history';
 
 import GoalStep from './steps/GoalStep';
 import PlanAStep from './steps/PlanAStep';
 import PlanBStep from './steps/PlanBStep';
 import CelebrateStep from './steps/CelebrateStep';
-import CompleteStep from './steps/CompleteStep';
 
 export default function CheckinPage() {
+  const router = useRouter();
   const [step, setStep] = useState(1);
 
   const [goal, setGoal] = useState('');
   const [partner, setPartner] = useState('');
   const [plan, setPlan] = useState('');
   const [reflection, setReflection] = useState('');
+  const [planProgress, setPlanProgress] = useState(0);
+
+  const showPlanStep = () => {
+    setPlanProgress(0);
+    setStep(3);
+  };
+
+  const completeCheckin = () => {
+    saveCompletedCheckin({
+      goal,
+      planA: partner,
+      planB: plan,
+      celebration: reflection,
+    });
+
+    router.push('/plant/checkin/complete');
+  };
+
+  useEffect(() => {
+    if (step !== 3) {
+      return;
+    }
+
+    const timer = setInterval(() => {
+      setPlanProgress((previousProgress) => {
+        if (previousProgress >= 100) {
+          clearInterval(timer);
+          return 100;
+        }
+
+        return previousProgress + 1;
+      });
+    }, 100);
+
+    return () => clearInterval(timer);
+  }, [step]);
 
   return (
     <WizardLayout>
@@ -24,7 +62,7 @@ export default function CheckinPage() {
       {step === 1 && (
         <GoalStep
           goal={goal}
-          setGoal={setGoal}
+          onGoalChange={setGoal}
           onNext={() => setStep(2)}
         />
       )}
@@ -32,16 +70,17 @@ export default function CheckinPage() {
       {step === 2 && (
         <PlanAStep
           partner={partner}
-          setPartner={setPartner}
+          onPartnerChange={setPartner}
           onBack={() => setStep(1)}
-          onNext={() => setStep(3)}
+          onNext={showPlanStep}
         />
       )}
 
       {step === 3 && (
         <PlanBStep
           plan={plan}
-          setPlan={setPlan}
+          progress={planProgress}
+          onPlanChange={setPlan}
           onBack={() => setStep(2)}
           onNext={() => setStep(4)}
         />
@@ -50,25 +89,9 @@ export default function CheckinPage() {
       {step === 4 && (
         <CelebrateStep
           reflection={reflection}
-          setReflection={setReflection}
-          onBack={() => setStep(3)}
-          onNext={() => setStep(5)}
-        />
-      )}
-
-      {step === 5 && (
-        <CompleteStep
-          goal={goal}
-          partner={partner}
-          plan={plan}
-          reflection={reflection}
-          onRestart={() => {
-            setGoal('');
-            setPartner('');
-            setPlan('');
-            setReflection('');
-            setStep(1);
-          }}
+          onReflectionChange={setReflection}
+          onBack={showPlanStep}
+          onNext={completeCheckin}
         />
       )}
 

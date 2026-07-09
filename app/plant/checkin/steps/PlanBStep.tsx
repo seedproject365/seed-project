@@ -1,53 +1,36 @@
 'use client';
 
-import { useEffect, useState, type Dispatch, type SetStateAction } from 'react';
-import WizardStepFrame, { helperCardClass, primaryButtonClass, secondaryButtonClass, textareaClass } from '../components/WizardStepFrame';
+import WizardStepFrame, { primaryButtonClass, secondaryButtonClass, textareaClass } from '../components/WizardStepFrame';
 
 interface Props {
   plan: string;
-  setPlan: Dispatch<SetStateAction<string>>;
+  progress: number;
+  onPlanChange: (plan: string) => void;
   onBack: () => void;
   onNext: () => void;
 }
 
 export default function PlanBStep({
   plan,
-  setPlan,
+  progress,
+  onPlanChange,
   onBack,
   onNext,
 }: Props) {
-  
-  const [progress, setProgress] = useState(0);
-  useEffect(() => {
-    
-
-  const timer = setInterval(() => {
-    setProgress((prev) => {
-      if (prev >= 100) {
-        clearInterval(timer);
-        return 100;
-      }
-      return prev + 1;
-    });
-  }, 100);
-
-  return () => clearInterval(timer);
-}, []);
-
   return (
     <div className="w-full">
       <WizardStepFrame
       showFrame={false}
         stepLabel="🌱 第三步"
         progressPercent={75}
-        title="🌱 Plant Your Seed"
+        title="🌱 种下你的种子"
         description="今天，你准备如何帮助对方？"
         contentClassName="space-y-5"
       >
         <div className="mt-6">
          <textarea
   value={plan}
-  onChange={(e) => setPlan(e.target.value)}
+  onChange={(e) => onPlanChange(e.target.value)}
   placeholder="例如：今天转 RM1 给妈妈的 TNG，给她一个惊喜……"
   rows={5}
   className={`${textareaClass} min-h-[180px] text-base placeholder:text-sm`}
