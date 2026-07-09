@@ -1,5 +1,7 @@
 'use client';
 
+import { getDisplayName, getStoredProfile } from '../../context/ProfileContext';
+
 export type HistoryRecordType = 'checkin' | 'gratitude' | 'three-time-book';
 
 export type CheckinData = {
@@ -124,6 +126,7 @@ export function formatHistoryDate(date: string) {
 
 export function generateCheckinPoster(checkin: Omit<CheckinHistoryRecord, 'data'> & { data: Omit<CheckinData, 'poster'> }) {
   const displayDate = formatHistoryDate(checkin.date);
+  const profileName = getDisplayName(getStoredProfile());
   const svg = `
     <svg xmlns="http://www.w3.org/2000/svg" width="720" height="960" viewBox="0 0 720 960">
       <rect width="720" height="960" rx="42" fill="#F8F4EC"/>
@@ -132,6 +135,7 @@ export function generateCheckinPoster(checkin: Omit<CheckinHistoryRecord, 'data'
       <circle cx="126" cy="802" r="96" fill="#DDE9D7"/>
       <text x="68" y="112" fill="#5B4636" font-size="44" font-weight="800" font-family="Arial, sans-serif">四步骤打卡</text>
       <text x="68" y="154" fill="#8B7B6F" font-size="20" font-family="Arial, sans-serif">${escapeSvgText(displayDate)}</text>
+      <text x="68" y="190" fill="#8FAE8B" font-size="18" font-weight="700" font-family="Arial, sans-serif">分享人：${escapeSvgText(profileName)}</text>
       ${renderPosterSection('目标', checkin.data.goal, 244)}
       ${renderPosterSection('计划A', checkin.data.planA, 390)}
       ${renderPosterSection('计划B', checkin.data.planB, 536)}

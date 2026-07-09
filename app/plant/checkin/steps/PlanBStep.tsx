@@ -1,6 +1,7 @@
 'use client';
 
 import WizardStepFrame, { primaryButtonClass, secondaryButtonClass, textareaClass } from '../components/WizardStepFrame';
+import { getDisplayName, useProfile } from '../../../context/ProfileContext';
 
 interface Props {
   plan: string;
@@ -17,17 +18,21 @@ export default function PlanBStep({
   onBack,
   onNext,
 }: Props) {
+  const { profile } = useProfile();
+  const displayName = getDisplayName(profile);
+
   return (
     <div className="w-full">
       <WizardStepFrame
       showFrame={false}
-        stepLabel="🌱 第三步"
+        stepLabel="🌱 Step 3"
         progressPercent={75}
-        title="🌱 种下你的种子"
+        title="🌱 Plant Your Seed"
         description="今天，你准备如何帮助对方？"
         contentClassName="space-y-5"
       >
         <div className="mt-6">
+         <p className="mb-4 text-sm font-semibold text-[#8FAE8B]">Every seed has another way to grow, {displayName}.</p>
          <textarea
   value={plan}
   onChange={(e) => onPlanChange(e.target.value)}

@@ -6,6 +6,8 @@ import {
 import "./globals.css";
 import BottomNav from "./components/BottomNav";
 import AudioPlayer from "./components/AudioPlayer";
+import { ProfileProvider } from "./context/ProfileContext";
+import ProfileGate from "./profile/ProfileGate";
 
 const quicksand = Quicksand({
   weight: "400",
@@ -44,9 +46,11 @@ export default function RootLayout({
   return (
     <html lang="zh" className="h-full antialiased">
       <body className={`${quicksand.className} ${notoSansSC.className}`}>
-        {children}
-        <AudioPlayer defaultMuted={false} />
-        <BottomNav />
+        <ProfileProvider>
+          <ProfileGate>{children}</ProfileGate>
+          <AudioPlayer defaultMuted={false} />
+          <BottomNav />
+        </ProfileProvider>
       </body>
     </html>
   );

@@ -1,5 +1,6 @@
 'use client';
 import WizardStepFrame, { primaryButtonClass, secondaryButtonClass, textareaClass } from '../components/WizardStepFrame';
+import { getDisplayName, useProfile } from '../../../context/ProfileContext';
 
 interface Props {
   reflection: string;
@@ -9,7 +10,8 @@ interface Props {
 }
 
 export default function CelebrateStep({ reflection, onReflectionChange, onBack, onNext }: Props) {
-
+  const { profile } = useProfile();
+  const displayName = getDisplayName(profile);
 
   return (
     <div className="w-full">
@@ -21,6 +23,8 @@ export default function CelebrateStep({ reflection, onReflectionChange, onBack, 
                contentClassName="space-y-6"
       >
         <div className="mt-6">
+  <p className="mb-4 text-sm font-semibold text-[#8FAE8B]">Well done, {displayName}! 🌸</p>
+  <p className="mb-4 text-sm leading-6 text-[#8B7B6F]">Today your seed has bloomed.</p>
   <textarea
     value={reflection}
     onChange={(e) => onReflectionChange(e.target.value)}

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
+import { getDisplayName, useProfile } from '../../context/ProfileContext';
 import type { ThreeTimePeriod } from '../lib/history';
 import { saveThreeTimeBookEntry } from '../lib/history';
 
@@ -53,6 +54,8 @@ const seedSourceOptions = [
 ];
 
 export default function ThreeTimeBookPage() {
+  const { profile } = useProfile();
+  const displayName = getDisplayName(profile);
   const currentSlot = useMemo(() => getCurrentTimeSlot(), []);
   const [step, setStep] = useState(1);
   const [goodThing, setGoodThing] = useState('');
@@ -142,8 +145,10 @@ export default function ThreeTimeBookPage() {
         <div className="mb-4">
           
           <h1 className="mt-0 text-2xl font-bold text-[#5B4636]">三时书</h1>
+          <p className="mt-2 text-sm font-semibold text-[#8FAE8B]">Good evening, {displayName} ✨</p>
           <p className="mt-2 text-sm font-bold text-[#8FAE8B]">{currentSlot.label}</p>
           <p className="mt-2 text-sm text-[#8B7B6F]">{currentSlot.range}</p>
+          <p className="mt-2 text-sm text-[#8B7B6F]">Let's reflect on today.</p>
         </div>
 
         <div className="mb-5 h-2 overflow-hidden rounded-full bg-[#E8DDCC]">

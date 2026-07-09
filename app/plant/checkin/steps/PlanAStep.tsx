@@ -1,5 +1,6 @@
 'use client';
 import WizardStepFrame, { primaryButtonClass, secondaryButtonClass, textareaClass } from '../components/WizardStepFrame';
+import { getDisplayName, useProfile } from '../../../context/ProfileContext';
 
 interface Props {
   partner: string;
@@ -9,6 +10,9 @@ interface Props {
 }
 
 export default function PlanAStep({ partner, onPartnerChange, onBack, onNext }: Props) {
+  const { profile } = useProfile();
+  const displayName = getDisplayName(profile);
+
   return (
     <div className="w-full">
      <WizardStepFrame
@@ -19,6 +23,8 @@ export default function PlanAStep({ partner, onPartnerChange, onBack, onNext }: 
   description="找一个与你有共同目标，或值得帮助的对象。"
   contentClassName="space-y-6"
 >
+ <p className="text-sm font-semibold text-[#8FAE8B]">Let's make it happen, {displayName}.</p>
+
  <textarea
   value={partner}
   onChange={(e) => onPartnerChange(e.target.value)}

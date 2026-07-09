@@ -1,5 +1,6 @@
 'use client';
 import WizardStepFrame, { primaryButtonClass, textareaClass } from '../components/WizardStepFrame';
+import { getDisplayName, useProfile } from '../../../context/ProfileContext';
 
 interface Props {
   goal: string;
@@ -8,6 +9,9 @@ interface Props {
 }
 
 export default function GoalStep({ goal, onGoalChange, onNext }: Props) {
+  const { profile } = useProfile();
+  const displayName = getDisplayName(profile);
+
   return (
     <div className="w-full">
       <WizardStepFrame
@@ -18,6 +22,8 @@ export default function GoalStep({ goal, onGoalChange, onNext }: Props) {
         description="写下一个近期最想实现的目标"
         contentClassName="space-y-6"
       >
+        <p className="text-sm font-semibold text-[#8FAE8B]">Hello, {displayName} 🌱</p>
+
         <textarea
           value={goal}
           onChange={(e) => onGoalChange(e.target.value)}

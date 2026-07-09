@@ -3,11 +3,14 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+import { getDisplayName, useProfile } from '../../context/ProfileContext';
 import { saveGratitudeJournal } from '../lib/history';
 
 const emptyItems = ['', '', ''];
 
 export default function GratitudeJournalPage() {
+  const { profile } = useProfile();
+  const displayName = getDisplayName(profile);
   const [items, setItems] = useState(emptyItems);
   const [isComplete, setIsComplete] = useState(false);
 
@@ -51,8 +54,9 @@ export default function GratitudeJournalPage() {
         <div className="mb-6">
           <p className="text-sm font-medium text-[#8FAE8B]">Gratitude Journal</p>
           <h1 className="mt-2 text-3xl font-bold text-[#5B4636]">
-            今天你想感恩什么？
+            {displayName === 'Seed User' ? 'Gratitude Journal ❤️' : `${displayName}'s Gratitude Journal ❤️`}
           </h1>
+          <p className="mt-2 text-base text-[#8B7B6F]">今天你想感恩什么？</p>
           <p className="mt-2 text-base text-[#8B7B6F]">
             简单写下三件事。
           </p>
