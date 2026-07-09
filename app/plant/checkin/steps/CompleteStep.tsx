@@ -2,16 +2,14 @@
 import { useRouter } from "next/navigation";
 import Link from 'next/link';
 import WizardStepFrame, { helperCardClass, primaryButtonClass } from '../components/WizardStepFrame';
+import type { CheckinHistoryRecord } from '../../lib/history';
 
 type Props = {
-  goal: string;
-  partner: string;
-  plan: string;
-  reflection: string;
-  onRestart: () => void;
+  checkin?: CheckinHistoryRecord;
+  completedCount: number;
 };
 
-export default function CompleteStep({ goal, partner, plan, reflection, onRestart }: Props  ) {
+export default function CompleteStep({}: Props) {
   const router = useRouter();
   return (
     <div className="w-full">
@@ -55,7 +53,6 @@ export default function CompleteStep({ goal, partner, plan, reflection, onRestar
       <div className="mt-3 flex justify-center">
         <Link href="/plant/Share" className="w-full max-w-sm">
           <button
-  onClick={onRestart}
   className={`${primaryButtonClass} w-full`}
 >
   🌱 Return
