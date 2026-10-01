@@ -25,6 +25,8 @@ export type ThreeTimeBookEntry = {
   repentance: string;
   commitment: string;
   balance: string;
+  // optional virtue id selected by user for this period
+  virtueId?: string;
   completedAt: string;
 };
 
